@@ -1,13 +1,19 @@
-use 5.008;
+use strict;
+use warnings;
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
+
 WriteMakefile(
-                    NAME          => 'Weather::Bug',
-                    VERSION_FROM  => 'lib/Weather/Bug.pm',
-                    PREREQ_PM     => { HTTP::Request::Common => 0,
-                                       LWP::UserAgent => 0 },
-    ($] >= 5.005 ? (ABSTRACT_FROM => 'lib/Weather/Bug.pm',
-                    AUTHOR        => 'Mike Rosulek <mike@mikero.com>')
-                 : ()),
+    NAME                => 'Weather::Bug',
+    AUTHOR              => 'G. Wade Johnson <wade@anomaly.org>',
+    VERSION_FROM        => 'lib/Weather/Bug.pm',
+    ABSTRACT_FROM       => 'lib/Weather/Bug.pm',
+    PL_FILES            => {},
+    PREREQ_PM => {
+        'Test::More' => 0,
+        'Moose'      => 0,
+        'Test::Group' => 0,
+        'DateTime' => 0,
+    },
+    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean               => { FILES => 'Weather-Bug-*' },
 );

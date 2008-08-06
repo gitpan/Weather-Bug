@@ -1,4 +1,6 @@
-Revision history for Perl extension Weather::Bug.
+Revision history for Weather-Bug
 
-0.01	Mon Jul 21 2003
-	- Initial release
+0.20  Tue Aug 05 21:15:00 2008
+       Support for new WeatherBug API
+       Thanks to Mike Rosulek <mike@mikero.com> fo initial version.
+

@@ -1,0 +1,28 @@
+package MockLWPSimple;
+
+use warnings;
+use strict;
+use FindBin;
+use File::Spec;
+
+#
+# All of the data files are stored in the data subdirectory under
+# the directory I'm in.
+my $datadir = File::Spec->catdir( $FindBin::Bin, 'data' );
+
+#
+# Fake a LWP request by extracting the filename from the request URL
+# and use it to construct the name of the data file to read.
+# Return the contents of that file.
+sub get
+{
+    my $url = shift;
+    return unless $url =~ m[\.net/(\w+)\.aspx\?acode];
+    my $cmd = $1;
+
+    my $datafile = File::Spec->catfile( $datadir, "$cmd.xml" );
+    return unless open( my $fh, '<', $datafile );
+    local $/ = undef;
+    return <$fh>;
+}
+
