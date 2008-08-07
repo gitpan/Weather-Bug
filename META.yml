@@ -1,17 +1,49 @@
---- #YAML:1.0
-name:                Weather-Bug
-version:             0.20
-abstract:            Provide an object oriented interface to the WeatherBug API.
-license:             ~
-generated_by:        ExtUtils::MakeMaker version 6.32
-distribution_type:   module
-requires:     
-    DateTime:                      0
-    Moose:                         0
-    Test::Group:                   0
-    Test::More:                    0
-meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
-    version: 1.2
+---
+name: Weather-Bug
+version: 0.21
 author:
-    - G. Wade Johnson <wade@anomaly.org>
+  - 'G. Wade Johnson <wade@anomaly.org>'
+abstract: Provide an object oriented interface to the WeatherBug API.
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  DateTime: 0
+  Moose: 0
+  Test::Group: 0
+  Test::More: 0
+provides:
+  Weather::Bug:
+    file: lib/Weather/Bug.pm
+    version: 0.21
+  Weather::Bug::Alert:
+    file: lib/Weather/Bug/Alert.pm
+    version: 0.20
+  Weather::Bug::CompactWeather:
+    file: lib/Weather/Bug/CompactWeather.pm
+    version: 0.20
+  Weather::Bug::Forecast:
+    file: lib/Weather/Bug/Forecast.pm
+    version: 0.20
+  Weather::Bug::Location:
+    file: lib/Weather/Bug/Location.pm
+    version: 0.20
+  Weather::Bug::Quantity:
+    file: lib/Weather/Bug/Quantity.pm
+    version: 0.20
+  Weather::Bug::SevenDayForecast:
+    file: lib/Weather/Bug/SevenDayForecast.pm
+    version: 0.20
+  Weather::Bug::Station:
+    file: lib/Weather/Bug/Station.pm
+    version: 0.20
+  Weather::Bug::Temperature:
+    file: lib/Weather/Bug/Temperature.pm
+    version: 0.20
+  Weather::Bug::Weather:
+    file: lib/Weather/Bug/Weather.pm
+    version: 0.20
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

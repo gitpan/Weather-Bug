@@ -102,7 +102,7 @@ This document describes Weather::Bug::SevenDayForecast version 0.20
 
 The SevenDayForecast object encapsulates the time/date, location, and
 a set of Forecast objects that represents a 7-day forecast response
-from teh WeatherBug API.
+from the WeatherBug API.
 
 =head1 INTERFACE 
 

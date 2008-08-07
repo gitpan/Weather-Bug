@@ -6,12 +6,14 @@ my $builder = Module::Build->new(
     module_name         => 'Weather::Bug',
     license             => 'perl',
     dist_author         => 'G. Wade Johnson <wade@anomaly.org>',
-    dist_version_from   => 'lib/Weather/WeatherBug.pm',
+    dist_version_from   => 'lib/Weather/Bug.pm',
     requires => {
         'Test::More' => 0,
-        'version'    => 0,
+        'Moose'    => 0,
+        'Test::Group' => 0,
+        'DateTime'    => 0,
     },
-    add_to_cleanup      => [ 'Weather-WeatherBug-*' ],
+    add_to_cleanup      => [ 'Weather-Bug-*' ],
 );
 
 $builder->create_build_script();
