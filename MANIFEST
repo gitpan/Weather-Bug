@@ -32,3 +32,8 @@ t/lib/MockLWPSimple.pm
 t/lib/TestHelper.pm
 t/pod-coverage.t
 t/pod.t
+t/data/getalerts.xml
+t/data/getFullForecast.xml
+t/data/getLiveCompactWeather.xml
+t/data/getLiveWeather.xml
+t/data/getStations.xml

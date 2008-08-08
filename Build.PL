@@ -12,6 +12,7 @@ my $builder = Module::Build->new(
         'Moose'    => 0,
         'Test::Group' => 0,
         'DateTime'    => 0,
+        'XML::LibXML'    => 0,
     },
     add_to_cleanup      => [ 'Weather-Bug-*' ],
 );
