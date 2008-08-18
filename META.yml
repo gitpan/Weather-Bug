@@ -1,13 +1,15 @@
 --- #YAML:1.0
 name:                Weather-Bug
-version:             0.22
+version:             0.23
 abstract:            Provide an object oriented interface to the WeatherBug API.
 license:             ~
 generated_by:        ExtUtils::MakeMaker version 6.32
 distribution_type:   module
 requires:     
     DateTime:                      0
+    LWP::Simple:                   0
     Moose:                         0
+    overload:                      0
     Test::Group:                   0
     Test::More:                    0
     XML::LibXML:                   0

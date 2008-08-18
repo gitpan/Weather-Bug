@@ -2,7 +2,6 @@ package Weather::Bug;
 
 use warnings;
 use strict;
-use Carp;
 use Moose;
 use LWP::Simple;
 use XML::LibXML;
@@ -10,7 +9,7 @@ use Weather::Bug::Station;
 use Weather::Bug::SevenDayForecast;
 use Weather::Bug::Alert;
 
-our $VERSION = '0.22';
+our $VERSION = '0.23';
 
 has 'licensekey' => ( isa => 'Str', init_arg => '-key', required => 1 );
 has 'request' => ( isa => 'CodeRef', init_arg => '-getsub' );
@@ -307,7 +306,7 @@ Weather::Bug requires no configuration files or environment variables.
 
 =head1 DEPENDENCIES
 
-This module depends on C<Carp>, C<Moose>, C<LWP::Simple>, and C<XML::LibXML>.
+This module depends on C<Moose>, C<LWP::Simple>, and C<XML::LibXML>.
 
 =head1 INCOMPATIBILITIES
 

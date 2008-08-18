@@ -14,6 +14,8 @@ WriteMakefile(
         'Test::Group' => 0,
         'DateTime' => 0,
         'XML::LibXML' => 0,
+        'LWP::Simple' => 0,
+        'overload' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Weather-Bug-*' },

@@ -1,5 +1,8 @@
 Revision history for Weather-Bug
 
+0.23  Sun Aug 17 22:04:00 2008
+       Correct more installation errors: missing dependencies on what
+       I believed to be core modules. CPAN Testing corrected.
 0.22  Thu Aug 07 20:18:00 2008
        Correct installation errors: missing test files and dependency.
 0.20  Tue Aug 05 21:15:00 2008
