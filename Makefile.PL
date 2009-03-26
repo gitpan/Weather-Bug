@@ -13,6 +13,7 @@ WriteMakefile(
         'Moose'      => 0,
         'Test::Group' => 0,
         'DateTime' => 0,
+        'DateTime::Format::Builder' => 0,
         'XML::LibXML' => 0,
         'LWP::Simple' => 0,
         'overload' => 0,

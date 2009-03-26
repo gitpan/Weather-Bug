@@ -5,10 +5,16 @@ use strict;
 use FindBin;
 use File::Spec;
 
+our $suffix = '';
 #
 # All of the data files are stored in the data subdirectory under
 # the directory I'm in.
 my $datadir = File::Spec->catdir( $FindBin::Bin, 'data' );
+
+sub set_suffix
+{
+    $suffix = shift;
+}
 
 #
 # Fake a LWP request by extracting the filename from the request URL
@@ -20,7 +26,7 @@ sub get
     return unless $url =~ m[\.net/(\w+)\.aspx\?acode];
     my $cmd = $1;
 
-    my $datafile = File::Spec->catfile( $datadir, "$cmd.xml" );
+    my $datafile = File::Spec->catfile( $datadir, "$cmd$suffix.xml" );
     return unless open( my $fh, '<', $datafile );
     local $/ = undef;
     return <$fh>;

@@ -7,8 +7,9 @@ use XML::LibXML;
 use Weather::Bug::Location;
 use Weather::Bug::Forecast;
 use DateTime;
+use Weather::Bug::DateParser;
 
-our $VERSION = '0.20';
+our $VERSION = '0.21';
 
 has 'type' => ( is => 'ro', isa => 'Str', init_arg => '-type' );
 has 'date' => ( is => 'ro', isa => 'DateTime', init_arg => '-date' );
@@ -18,23 +19,13 @@ has 'forecasts' => ( is => 'ro', isa => 'ArrayRef[Weather::Bug::Forecast]', init
 sub _parse_date
 {
     my $date_str = shift;
-    die "Date string is not formatted as expected.\n"
-        unless $date_str =~ m{(\d{1,2})/(\d{1,2})/(\d{4})
-                        \s+
-                        (\d{1,2}):(\d\d):(\d\d)
-                        \s+
-                        ([aApP])[mM]
-                        }x;
-    my ($mon,$d,$y,$h,$min,$s,$ap) =
-        ($1, $2,$3,$4,$5,  $6,$7);
 
-    $h += 12 if uc $ap eq 'P';
-
-    return DateTime->new(
-        month => $mon, day => $d, year => $y,
-        hour => $h, minute => $min, second => $s,
-        time_zone => 'floating'
-    );
+    my $d = eval {
+        my $p = Weather::Bug::DateParser->new();
+        $p->parse_datetime( $date_str );
+    };
+    die "Date string is not formatted as expected.\n" if $@;
+    return $d;
 }
 
 sub from_xml

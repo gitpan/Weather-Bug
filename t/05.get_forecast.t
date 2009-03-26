@@ -1,4 +1,4 @@
-use Test::More tests => 4 + 13;
+use Test::More tests => 2 * (4 + 13);
 
 use warnings;
 use strict;
@@ -12,19 +12,41 @@ use TestHelper;
 
 my $wxbug = Weather::Bug->new( -key => 'FAKELICENSEKEY', -getsub => \&MockLWPSimple::get );
 
-my $forecast = $wxbug->get_forecast( 77096 );
-
-isa_ok( $forecast, 'Weather::Bug::SevenDayForecast' );
-is( $forecast->type(), 'detailed', 'Type is correct' );
-datetime_ok( $forecast->date(), 'date',
-    { ymd => '2008-07-18', hms => '20:32:00', tz => 'floating' } );
-isa_ok( $forecast->location(), 'Weather::Bug::Location' );
-
-my $index = 0;
-foreach my $s (@{ $forecast->forecasts() })
+# New date format
 {
-    forecast_ok( $s, "Forecast $index" );
-    ++$index;
+    my $forecast = $wxbug->get_forecast( 77096 );
+
+    isa_ok( $forecast, 'Weather::Bug::SevenDayForecast' );
+    is( $forecast->type(), 'detailed', 'Type is correct' );
+    datetime_ok( $forecast->date(), 'date',
+        { ymd => '2009-03-25', hms => '15:31:00', tz => 'floating' } );
+    isa_ok( $forecast->location(), 'Weather::Bug::Location' );
+
+    my $index = 0;
+    foreach my $s (@{ $forecast->forecasts() })
+    {
+        forecast_ok( $s, "Forecast $index" );
+        ++$index;
+    }
+}
+
+# Old date format, in case they revert
+{
+    MockLWPSimple::set_suffix( '-old' );
+    my $forecast = $wxbug->get_forecast( 77096 );
+
+    isa_ok( $forecast, 'Weather::Bug::SevenDayForecast', 'Old format' );
+    is( $forecast->type(), 'detailed', 'Old Type is correct' );
+    datetime_ok( $forecast->date(), 'date',
+        { ymd => '2008-07-18', hms => '20:32:00', tz => 'floating' } );
+    isa_ok( $forecast->location(), 'Weather::Bug::Location', 'Old format' );
+
+    my $index = 0;
+    foreach my $s (@{ $forecast->forecasts() })
+    {
+        forecast_ok( $s, "Old format: Forecast $index" );
+        ++$index;
+    }
 }
 
 # -------

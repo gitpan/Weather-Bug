@@ -9,7 +9,7 @@ use Weather::Bug::Station;
 use Weather::Bug::SevenDayForecast;
 use Weather::Bug::Alert;
 
-our $VERSION = '0.23';
+our $VERSION = '0.24';
 
 has 'licensekey' => ( isa => 'Str', init_arg => '-key', required => 1 );
 has 'request' => ( isa => 'CodeRef', init_arg => '-getsub' );

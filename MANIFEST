@@ -3,6 +3,7 @@ Changes
 lib/Weather/Bug.pm
 lib/Weather/Bug/Alert.pm
 lib/Weather/Bug/CompactWeather.pm
+lib/Weather/Bug/DateParser.pm
 lib/Weather/Bug/Forecast.pm
 lib/Weather/Bug/SevenDayForecast.pm
 lib/Weather/Bug/Location.pm
@@ -28,12 +29,14 @@ t/09.station_compact.t
 t/10.bug_compact.t
 t/11.station_weather.t
 t/12.bug_weather.t
+t/13.date_parse.t
 t/lib/MockLWPSimple.pm
 t/lib/TestHelper.pm
 t/pod-coverage.t
 t/pod.t
 t/data/getalerts.xml
 t/data/getFullForecast.xml
+t/data/getFullForecast-old.xml
 t/data/getLiveCompactWeather.xml
 t/data/getLiveWeather.xml
 t/data/getStations.xml
