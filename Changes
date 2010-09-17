@@ -1,5 +1,10 @@
 Revision history for Weather-Bug
 
+0.25  Thu Sep 16 22:50:00 2010
+        Gordon Child provided a patch for a Moose warning issue that began
+        appearing sometime since the last release. In the process, he replaced
+        the dependency injection approach used for changing the request code
+        with an inheritance-based approach.
 0.24  Wed Mar 25 19:30:00 2009
        Joseph Hull reported that WeatherBug had apparently modified the
        format of the date string in the getFullForecast response. Used this

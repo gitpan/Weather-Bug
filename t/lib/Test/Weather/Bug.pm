@@ -1,9 +1,12 @@
-package MockLWPSimple;
+package Test::Weather::Bug;
 
 use warnings;
 use strict;
 use FindBin;
 use File::Spec;
+use Moose;
+
+extends 'Weather::Bug';
 
 our $suffix = '';
 #
@@ -20,8 +23,8 @@ sub set_suffix
 # Fake a LWP request by extracting the filename from the request URL
 # and use it to construct the name of the data file to read.
 # Return the contents of that file.
-sub get
-{
+override '_get' => sub {
+    my $self = shift;
     my $url = shift;
     return unless $url =~ m[\.net/(\w+)\.aspx\?acode];
     my $cmd = $1;
@@ -30,5 +33,6 @@ sub get
     return unless open( my $fh, '<', $datafile );
     local $/ = undef;
     return <$fh>;
-}
+};
 
+1;

@@ -10,7 +10,7 @@ use Weather::Bug::Temperature;
 use Weather::Bug::Quantity;
 use DateTime;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 subtype 'DateTime' => as 'Object' => where { $_->isa('DateTime') };
 
@@ -172,7 +172,7 @@ Weather::Bug::Weather - Simple class interface for a weather report.
 
 =head1 VERSION
 
-This document describes Weather::Bug::CompactWeather version 0.20
+This document describes Weather::Bug::CompactWeather version 0.25
 
 =head1 SYNOPSIS
 

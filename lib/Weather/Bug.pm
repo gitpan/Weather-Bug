@@ -9,22 +9,15 @@ use Weather::Bug::Station;
 use Weather::Bug::SevenDayForecast;
 use Weather::Bug::Alert;
 
-our $VERSION = '0.24';
+our $VERSION = '0.25';
 
-has 'licensekey' => ( isa => 'Str', init_arg => '-key', required => 1 );
-has 'request' => ( isa => 'CodeRef', init_arg => '-getsub' );
+has 'licensekey' => ( is => 'ro', isa => 'Str', init_arg => '-key', required => 1 );
 
-#
-# Ctor
-#
-# Sets the default method for I<request>. This member serves to allow the
-# dependency injection needed to make the testing possible.
-#
-sub BUILD
-{
-    my $self = shift;
-    $self->{request} ||= \&LWP::Simple::get;
-    return;
+# This can be overridden in the child test class
+sub _get {
+  my $self = shift;
+  my $url = shift;
+  return LWP::Simple::get( $url );
 }
 
 sub list_stations
@@ -62,7 +55,7 @@ sub request
         $url .= "&$p=$parms->{$p}";
     }
 
-    my $output = $self->{request}->( $url );
+    my $output = $self->_get( $url );
     die "Request for '$cmd' failed.\n" unless defined $output;
     return $output;
 }
@@ -156,7 +149,7 @@ Weather::Bug - Provide an object oriented interface to the WeatherBug API.
 
 =head1 VERSION
 
-This document describes Weather::Bug version 0.20
+This document describes Weather::Bug version 0.25
 
 
 =head1 SYNOPSIS
@@ -319,6 +312,18 @@ No bugs have been reported.
 Please report any bugs or feature requests to
 C<bug-weather-weatherbug@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
+
+=head1 ACKNOWLEDGEMENTS
+
+The following people have contributed to this module.
+
+=over 4
+
+=item * Joseph Hull
+
+=item * Gordon Child
+
+=back
 
 =head1 AUTHOR
 

@@ -6,10 +6,10 @@ use strict;
 use Weather::Bug;
 use FindBin;
 use lib "$FindBin::Bin/lib";
-use MockLWPSimple;
+use Test::Weather::Bug;
 use TestHelper;
 
-my $wxbug = Weather::Bug->new( -key => 'FAKELICENSEKEY', -getsub => \&MockLWPSimple::get );
+my $wxbug = Test::Weather::Bug->new( -key => 'FAKELICENSEKEY' );
 
 my $weather = $wxbug->get_live_compact_weather( 'HST02', '77035' );
 

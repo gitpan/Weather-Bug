@@ -30,7 +30,7 @@ t/10.bug_compact.t
 t/11.station_weather.t
 t/12.bug_weather.t
 t/13.date_parse.t
-t/lib/MockLWPSimple.pm
+t/lib/Test/Weather/Bug.pm
 t/lib/TestHelper.pm
 t/pod-coverage.t
 t/pod.t

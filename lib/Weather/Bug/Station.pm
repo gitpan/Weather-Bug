@@ -11,14 +11,14 @@ use Weather::Bug::Quantity;
 use Weather::Bug::CompactWeather;
 use Weather::Bug::Weather;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 has 'id' => ( is => 'ro', isa => 'Str', init_arg => '-id' );
 has 'name' => ( is => 'ro', isa => 'Str', init_arg => '-name' );
 has 'url' => ( is => 'ro', isa => 'Str', init_arg => '-url', predicate => 'has_url' );
 has 'location' => ( is => 'ro', isa => 'Weather::Bug::Location', init_arg => '-loc' );
 has 'station_type' => ( is => 'ro', isa => 'Str', init_arg => '-type' );
-has 'bug' => ( isa => 'Weather::Bug', init_arg => '-bug' );
+has 'bug' => ( is => 'ro', isa => 'Weather::Bug', init_arg => '-bug' );
 
 sub from_xml
 {
@@ -130,7 +130,7 @@ data
 
 =head1 VERSION
 
-This document describes Weather::Bug::Station version 0.20
+This document describes Weather::Bug::Station version 0.25
 
 =head1 SYNOPSIS
 

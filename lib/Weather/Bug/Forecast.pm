@@ -6,7 +6,7 @@ use Moose;
 use XML::LibXML;
 use Weather::Bug::Temperature;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 has 'title' => ( is => 'ro', isa => 'Str', init_arg => '-title' );
 has 'short_title' => ( is => 'ro', isa => 'Str', init_arg => '-short' );
@@ -48,7 +48,7 @@ the WeatherBug API.
 
 =head1 VERSION
 
-This document describes Weather::Bug::Forecast version 0.20
+This document describes Weather::Bug::Forecast version 0.25
 
 =head1 SYNOPSIS
 

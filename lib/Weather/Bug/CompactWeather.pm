@@ -8,7 +8,7 @@ use Weather::Bug::Station;
 use Weather::Bug::Temperature;
 use Weather::Bug::Quantity;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 has 'station' => ( is => 'ro', isa => 'Weather::Bug::Station', init_arg => '-station' );
 has 'temp' => ( is => 'ro', isa => 'Weather::Bug::Temperature', init_arg => '-temp' );
@@ -53,7 +53,7 @@ Weather::Bug::CompactWeather - Simple class interface for a compact weather repo
 
 =head1 VERSION
 
-This document describes Weather::Bug::CompactWeather version 0.20
+This document describes Weather::Bug::CompactWeather version 0.25
 
 =head1 SYNOPSIS
 

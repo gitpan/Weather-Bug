@@ -6,9 +6,9 @@ use strict;
 use Weather::Bug;
 use FindBin;
 use lib "$FindBin::Bin/lib";
-use MockLWPSimple;
+use Test::Weather::Bug;
 
-my $wxbug = Weather::Bug->new( -key => 'FAKELICENSEKEY', -getsub => \&MockLWPSimple::get );
+my $wxbug = Test::Weather::Bug->new( -key => 'FAKELICENSEKEY' );
 
 my $forecast = $wxbug->get_forecast( 77096 );
 my $loc = $forecast->location();

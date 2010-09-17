@@ -1,4 +1,4 @@
-Weather::Bug version 0.0.1
+Weather::Bug version 0.25
 
 Provide access to weather data from WeatherBug stations around the US. These
 stations provide live data via the WeatherBug API.

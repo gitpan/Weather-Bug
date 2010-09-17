@@ -8,7 +8,7 @@ use XML::LibXML;
 use overload
     '""' => \&stringify;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 has 'value' => ( is => 'ro', isa => 'Str', init_arg => '-value' );
 has 'units' => ( is => 'ro', isa => 'Str', init_arg => '-units' );
@@ -81,7 +81,7 @@ Weather::Bug::Quantity - Abstraction for a value with units.
 
 =head1 VERSION
 
-This document describes Weather::Bug::Quantity version 0.20
+This document describes Weather::Bug::Quantity version 0.25
 
 =head1 SYNOPSIS
 

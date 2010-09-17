@@ -6,11 +6,11 @@ use strict;
 use Weather::Bug;
 use FindBin;
 use lib "$FindBin::Bin/lib";
-use MockLWPSimple;
+use Test::Weather::Bug;
 use Test::Group;
 use TestHelper;
 
-my $wxbug = Weather::Bug->new( -key => 'FAKELICENSEKEY', -getsub => \&MockLWPSimple::get );
+my $wxbug = Test::Weather::Bug->new( -key => 'FAKELICENSEKEY' );
 
 # New date format
 {
@@ -32,7 +32,7 @@ my $wxbug = Weather::Bug->new( -key => 'FAKELICENSEKEY', -getsub => \&MockLWPSim
 
 # Old date format, in case they revert
 {
-    MockLWPSimple::set_suffix( '-old' );
+    Test::Weather::Bug::set_suffix( '-old' );
     my $forecast = $wxbug->get_forecast( 77096 );
 
     isa_ok( $forecast, 'Weather::Bug::SevenDayForecast', 'Old format' );

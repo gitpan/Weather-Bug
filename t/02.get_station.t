@@ -6,7 +6,7 @@ use strict;
 use Weather::Bug;
 use FindBin;
 use lib "$FindBin::Bin/lib";
-use MockLWPSimple;
+use Test::Weather::Bug;
 use Test::Group;
 
 my %cities = map { $_ => 1 } qw/Houston Bellaire/;
@@ -16,7 +16,7 @@ my %zipcodes = map { $_ => 1 }
          77077 77081 77083 77401 77033 77019
          77204/;
 
-my $wxbug = Weather::Bug->new( -key => 'FAKELICENSEKEY', -getsub => \&MockLWPSimple::get );
+my $wxbug = Test::Weather::Bug->new( -key => 'FAKELICENSEKEY' );
 
 my @stations = $wxbug->list_stations( 77096 );
 

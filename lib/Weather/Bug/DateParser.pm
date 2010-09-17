@@ -3,7 +3,7 @@ package Weather::Bug::DateParser;
 use warnings;
 use strict;
 
-our $VERSION = '0.03';
+our $VERSION = '0.25';
 
 use DateTime::Format::Builder(
     parsers => {
@@ -18,7 +18,7 @@ use DateTime::Format::Builder(
     },
 );
 
-1; # Magic true value required at end of module
+1;
 __END__
 
 =head1 NAME
@@ -28,7 +28,7 @@ Weather::Bug::DateParser - Parse WeatherBug date string into a C<DateTime> objec
 
 =head1 VERSION
 
-This document describes Weather::Bug::DateParser version 0.0.3
+This document describes Weather::Bug::DateParser version 0.25
 
 
 =head1 DESCRIPTION

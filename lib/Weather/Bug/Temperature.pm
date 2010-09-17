@@ -8,7 +8,7 @@ use XML::LibXML;
 use overload
     '""' => \&stringify;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 extends 'Weather::Bug::Quantity';
 
@@ -96,7 +96,7 @@ ability to retrieve data in either C or F.
 
 =head1 VERSION
 
-This document describes Weather::Bug::Temperature version 0.20
+This document describes Weather::Bug::Temperature version 0.25
 
 =head1 SYNOPSIS
 

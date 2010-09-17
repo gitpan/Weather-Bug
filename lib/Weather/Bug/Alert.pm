@@ -6,7 +6,7 @@ use Moose;
 use XML::LibXML;
 use Weather::Bug;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 has 'type' => ( is => 'ro', isa => 'Str', init_arg => '-type' );
 has 'title' => ( is => 'ro', isa => 'Str', init_arg => '-title' );
@@ -32,7 +32,7 @@ Weather::Bug::Alert - Simple class interface to WeatherBug alerts.
 
 =head1 VERSION
 
-This document describes Weather::Bug::Alert version 0.20
+This document describes Weather::Bug::Alert version 0.25
 
 =head1 SYNOPSIS
 

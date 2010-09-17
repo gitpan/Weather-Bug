@@ -9,7 +9,7 @@ use Weather::Bug::Forecast;
 use DateTime;
 use Weather::Bug::DateParser;
 
-our $VERSION = '0.21';
+our $VERSION = '0.25';
 
 has 'type' => ( is => 'ro', isa => 'Str', init_arg => '-type' );
 has 'date' => ( is => 'ro', isa => 'DateTime', init_arg => '-date' );
@@ -65,7 +65,7 @@ Weather::Bug::SevenDayForecast - Simple class interface to the 7 day forecast.
 
 =head1 VERSION
 
-This document describes Weather::Bug::SevenDayForecast version 0.20
+This document describes Weather::Bug::SevenDayForecast version 0.25
 
 =head1 SYNOPSIS
 

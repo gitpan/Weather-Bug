@@ -5,7 +5,7 @@ use strict;
 use Moose;
 use XML::LibXML;
 
-our $VERSION = '0.20';
+our $VERSION = '0.25';
 
 has 'city' => ( is => 'ro', isa => 'Str', init_arg => '-city' );
 has 'state' => ( is => 'ro', isa => 'Str', init_arg => '-state' );
@@ -114,7 +114,7 @@ a WeatherBug Station or observation.
 
 =head1 VERSION
 
-This document describes Weather::Bug::Location version 0.20
+This document describes Weather::Bug::Location version 0.25
 
 =head1 SYNOPSIS
 
